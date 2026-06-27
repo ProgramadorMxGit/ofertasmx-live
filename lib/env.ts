@@ -54,6 +54,8 @@ export const serverSchema = z.object({
   AMAZON_TRACKING_ID: z.string().default("programadormx-20"),
   SHOW_AMAZON_PRICES: envBoolean.default(true),
   CRON_SECRET: z.string().min(1),
+  /** API key for the quick-offer REST endpoint (optional — omit to disable). */
+  QUICK_OFFER_API_KEY: z.string().min(16).optional(),
 });
 
 /** Public variables. Inlined into the browser bundle — never secrets (R27.2). */
