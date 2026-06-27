@@ -9,21 +9,18 @@
  */
 
 /** @type {(import('next').NextConfig)['images']['remotePatterns']} */
-const remotePatterns = [];
+const remotePatterns = [
+  // Mercado Libre image CDN
+  { protocol: "https", hostname: "*.mlstatic.com" },
+  { protocol: "http", hostname: "*.mlstatic.com" },
+  // Amazon product images
+  { protocol: "https", hostname: "m.media-amazon.com" },
+  { protocol: "https", hostname: "images-na.ssl-images-amazon.com" },
+  { protocol: "https", hostname: "*.ssl-images-amazon.com" },
+  // Generic HTTPS images (og:image from any allowed product URL)
+  { protocol: "https", hostname: "**" },
+];
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-if (supabaseUrl) {
-  try {
-    const { hostname } = new URL(supabaseUrl);
-    remotePatterns.push({
-      protocol: "https",
-      hostname,
-      pathname: "/storage/v1/object/public/**",
-    });
-  } catch {
-    // Malformed URL — skip; image optimization just won't allow this host.
-  }
-}
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
