@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design system foundation (Task 20).
+ *
+ * Everything visual flows from semantic tokens — no scattered hex in
+ * components (R12.5). Colors switch by `data-theme` on <html> (dark-first,
+ * R12.3). The light theme is a *separately calibrated* palette, not a
+ * mechanical inversion of dark (R12.3, R12.4). Values are tuned so the core
+ * text pairs (foreground / muted-foreground on background / surface) clear
+ * WCAG AA (>= 4.5:1) in both themes, and status accents used as text clear
+ * 4.5:1 on the background.
+ *
+ * Motion tokens (durations + emphasized easing) and the fluid type scale
+ * (R12.7, R18.1) are theme-independent and live in the plain :root block.
+ */
+
+:root {
+  /* ----- Fluid type scale (clamp): metadata -> hero (R12.7) ----------------
+     Min sizes stay legible on low-end Android (body >= 16px, meta ~13px). */
+  --step--1: clamp(0.8rem, 0.76rem + 0.18vw, 0.875rem); /* metadata / captions */
+  --step-0: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); /* body */
+  --step-1: clamp(1.2rem, 1.11rem + 0.46vw, 1.4rem);
+  --step-2: clamp(1.44rem, 1.3rem + 0.7vw, 1.75rem);
+  --step-3: clamp(1.728rem, 1.52rem + 1.04vw, 2.2rem);
+  --step-4: clamp(2.074rem, 1.78rem + 1.47vw, 2.75rem);
+  --step-5: clamp(2.488rem, 2.06rem + 2.14vw, 3.45rem);
+  --step-6: clamp(2.986rem, 2.39rem + 2.98vw, 4.3rem); /* hero H1 */
+
+  /* ----- Animation system tokens (R18.1) ----------------------------------- */
+  --duration-instant: 120ms; /* 100-140ms */
+  --duration-fast: 190ms; /* 160-220ms */
+  --duration-normal: 280ms; /* 240-320ms */
+  --duration-editorial: 520ms; /* 450-650ms */
+  --ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ----- Dark theme (default / dark-first, R12.3) ---------------------------- */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: 222 24% 7%;
+  --foreground: 210 20% 96%;
+  --surface: 222 20% 10%;
+  --surface-elevated: 222 18% 13%;
+  --muted: 222 12% 22%;
+  --muted-foreground: 215 16% 64%;
+  --border: 222 14% 20%;
+  --primary: 199 89% 52%;
+  --primary-foreground: 222 47% 7%;
+  --success: 152 60% 42%;
+  --warning: 38 92% 55%;
+  --danger: 0 72% 60%;
+  --focus-ring: 199 89% 60%;
+}
+
+/* ----- Light theme (calibrated separately, NOT inverted, R12.3) ------------ */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --background: 210 40% 99%;
+  --foreground: 222 32% 14%;
+  --surface: 0 0% 100%;
+  --surface-elevated: 210 40% 97%;
+  --muted: 214 20% 92%;
+  --muted-foreground: 215 16% 38%;
+  --border: 214 20% 86%;
+  /* Darkened from 36% so `text-primary` as small text clears WCAG AA (>=4.5:1)
+     even over the home hero's faint primary-tinted glow (R25.3); used as a
+     button background it only gains contrast against white. */
+  --primary: 199 89% 30%;
+  --primary-foreground: 0 0% 100%;
+  --success: 152 55% 32%;
+  --warning: 32 90% 34%;
+  --danger: 0 66% 46%;
+  --focus-ring: 199 89% 40%;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Visible focus for keyboard users (R25.1). */
+  :focus-visible {
+    outline: 2px solid hsl(var(--focus-ring));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  /* Tabular figures for prices, discounts and stats (R12.6). */
+  .font-tabular {
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+}
+
+/*
+ * ThemeToggle icon visibility (Task 20.3).
+ * CSS-only swap keyed off `data-theme` so the toggle needs no client state for
+ * its glyph — eliminating any hydration mismatch. Icons are decorative.
+ */
+[data-theme="dark"] [data-theme-icon="sun"] {
+  display: none;
+}
+[data-theme="light"] [data-theme-icon="moon"] {
+  display: none;
+}
+
+/*
+ * Reduced-motion strategy (R18.5, R18.6).
+ * Disable non-essential motion globally while preserving all functionality:
+ * transitions/animations collapse to "instant" and parallax-style smooth
+ * scrolling is turned off. Opacity/transform end-states are kept (they simply
+ * apply immediately), so nothing that conveys state is lost. The main content
+ * is never gated behind motion, so the H1/LCP is unaffected.
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
