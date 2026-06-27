@@ -1,7 +1,6 @@
 import "server-only";
 
 import Decimal from "decimal.js";
-import { NextResponse } from "next/server";
 import { z } from "zod";
 
 import { computeFingerprint } from "@/lib/dedup/fingerprint";
@@ -26,7 +25,8 @@ import { safeEqualSecret } from "@/lib/telegram/secret";
  *   - original_price  (optional) — price before discount
  *   - discount_percent(optional) — calculated automatically if both prices given
  *   - affiliate_url   (required) — Amazon MX or Mercado Libre link
- *   - image_url       (optional) — direct image URL
+ *   - image_url       (optional) — if omitted, extracted automatically from
+ *                                   the product page og:image meta tag
  *   - platform        (optional) — "amazon" | "mercado_libre" (auto-detected)
  *
  * The URL is validated against the SSRF allowlist. Platform is auto-detected
@@ -78,6 +78,72 @@ function detectPlatform(host: string): "amazon" | "mercado_libre" | null {
     return "mercado_libre";
   }
   return null;
+}
+
+/**
+ * Attempts to extract the main product image from a URL by fetching the page
+ * and reading the `og:image` meta tag. Returns `null` on any failure so the
+ * caller can degrade gracefully (offer saved without image).
+ *
+ * Limits: 5 s timeout, 500 KB body read, redirects followed automatically.
+ * Works with both Amazon MX and Mercado Libre full product URLs, and with
+ * short links (meli.la, amzn.to) since `fetch` follows redirects.
+ */
+async function fetchOgImage(productUrl: string): Promise<string | null> {
+  try {
+    const response = await fetch(productUrl, {
+      redirect: "follow",
+      headers: {
+        // Realistic UA so Amazon/ML return full HTML instead of a bot block
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+          "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        Accept: "text/html,application/xhtml+xml",
+        "Accept-Language": "es-MX,es;q=0.9,en;q=0.8",
+      },
+      signal: AbortSignal.timeout(5000), // 5 s max
+    });
+
+    if (!response.ok) return null;
+
+    // Read at most 500 KB — og:image is always in the <head>
+    const reader = response.body?.getReader();
+    if (!reader) return null;
+
+    let html = "";
+    let bytesRead = 0;
+    const MAX_BYTES = 500_000;
+
+    while (bytesRead < MAX_BYTES) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      html += new TextDecoder().decode(value);
+      bytesRead += value?.length ?? 0;
+      // Stop once we've passed </head> — og:image will be there
+      if (html.includes("</head>") || html.includes("<body")) break;
+    }
+    reader.cancel().catch(() => undefined);
+
+    // Match og:image in both attribute orders
+    const match =
+      /property=["']og:image["'][^>]+content=["']([^"']+)["']/i.exec(html) ??
+      /content=["']([^"']+)["'][^>]+property=["']og:image["']/i.exec(html);
+
+    const imageUrl = match?.[1]?.trim();
+    if (!imageUrl) return null;
+
+    // Validate the extracted URL is a safe HTTPS URL
+    try {
+      const parsed = new URL(imageUrl);
+      if (parsed.protocol !== "https:") return null;
+    } catch {
+      return null;
+    }
+
+    return imageUrl;
+  } catch {
+    return null;
+  }
 }
 
 export async function POST(request: Request): Promise<Response> {
@@ -168,6 +234,11 @@ export async function POST(request: Request): Promise<Response> {
   });
   const slug = generateSlug(parsed.title, { platform, externalProductId, fingerprint });
 
+  // ── 8.5 Auto-fetch og:image when no image_url was provided ───────────────
+  const imageUrl =
+    parsed.image_url ??
+    (await fetchOgImage(parsed.affiliate_url));
+
   // ── 9. Insert into Supabase ──────────────────────────────────────────────
   const client = createServiceRoleClient();
   const pseudoId = BigInt(Date.now()); // unique pseudo-id (not from Telegram)
@@ -184,8 +255,8 @@ export async function POST(request: Request): Promise<Response> {
       telegram_update_id: Number(pseudoId),
       title: parsed.title,
       slug,
-      image_url: parsed.image_url ?? null,
-      image_status: parsed.image_url ? "ready" : "failed",
+      image_url: imageUrl ?? null,
+      image_status: imageUrl ? "ready" : "failed",
       image_retry_count: 0,
       original_price: parsed.original_price ?? null,
       current_price: parsed.current_price,
@@ -210,5 +281,15 @@ export async function POST(request: Request): Promise<Response> {
   }
 
   const offerUrl = `${publicEnv.NEXT_PUBLIC_SITE_URL}/ofertas/${row.slug}`;
-  return json({ ok: true, id: row.id, slug: row.slug, url: offerUrl }, 201);
+  return json(
+    {
+      ok: true,
+      id: row.id,
+      slug: row.slug,
+      url: offerUrl,
+      image_url: imageUrl ?? null,
+      image_auto_fetched: imageUrl !== null && parsed.image_url == null,
+    },
+    201,
+  );
 }
