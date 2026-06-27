@@ -268,6 +268,7 @@ export async function POST(request: Request): Promise<Response> {
       needs_review: needsReview,
       raw_text: JSON.stringify({ source: "quick-api", ...parsed }),
       published_at: new Date().toISOString(),
+      expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(), // 30 días
     })
     .select("id, slug")
     .single();
