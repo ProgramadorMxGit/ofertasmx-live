@@ -47,7 +47,7 @@ export function Hero({ demoOffers, showAmazonPrices }: HeroProps) {
         className="pointer-events-none absolute inset-x-0 -top-32 -z-10 mx-auto h-72 max-w-4xl rounded-full bg-primary/10 blur-3xl"
       />
 
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:gap-10 lg:py-24">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start lg:gap-10 lg:py-24">
         {/* Editorial column (asymmetric: 7 of 12). */}
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-meta font-medium text-muted-foreground">
