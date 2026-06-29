@@ -36,7 +36,7 @@ export interface HeroProps {
 
 export function Hero({ demoOffers, showAmazonPrices }: HeroProps) {
   const whatsappUrl = publicEnv.NEXT_PUBLIC_WHATSAPP_INVITE_URL;
-  const cards = demoOffers.slice(0, 3);
+  const cards = demoOffers.slice(0, 1);
   const hasCards = cards.length > 0;
 
   return (
@@ -149,15 +149,14 @@ export function Hero({ demoOffers, showAmazonPrices }: HeroProps) {
  * database). Clearly labelled "Próximamente" — never fabricated offers.
  */
 function HeroPlaceholders() {
-  const slots = [0, 1, 2];
+  const slots = [0];
   return (
     <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {slots.map((slot) => (
         <li
           key={slot}
           className={cn(
-            "flex min-h-[160px] flex-col justify-between rounded-[var(--radius)] border border-dashed border-border bg-surface/60 p-5",
-            slot === 0 && "sm:col-span-2",
+            "flex min-h-[160px] flex-col justify-between rounded-[var(--radius)] border border-dashed border-border bg-surface/60 p-5 sm:col-span-2",
           )}
         >
           <span className="inline-flex items-center gap-1.5 text-meta font-medium text-muted-foreground">
