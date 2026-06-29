@@ -35,6 +35,17 @@
   --duration-normal: 280ms; /* 240-320ms */
   --duration-editorial: 520ms; /* 450-650ms */
   --ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ----- Radius scale (A2 — single source of truth) ------------------------
+     Editorial high-end: tighter, architectural corners instead of friendly
+     pills. `--radius` is the card/panel base step; controls use the smaller
+     step. Bound to utilities via `rounded-[var(--radius)]` (not `rounded-lg`)
+     because this project's hand-built tailwind.config has no shadcn radius
+     wiring — so no config change is needed and this stays the single source. */
+  --radius-sm: 0.375rem; /* 6px  — chips / small surfaces */
+  --radius-control: 0.5rem; /* 8px  — buttons & inputs (replaces full pills) */
+  --radius: 0.8125rem; /* 13px — cards & panels (target 12–14px) */
+  --radius-lg: 1rem; /* 16px — large editorial frames (hero preview) */
 }
 
 /* ----- Dark theme (default / dark-first, R12.3) ---------------------------- */

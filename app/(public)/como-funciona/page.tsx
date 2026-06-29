@@ -56,7 +56,7 @@ export default function ComoFuncionaPage() {
         {STEPS.map((step, index) => (
           <li
             key={step.title}
-            className="flex flex-col gap-3 rounded-[22px] border border-border bg-surface p-6"
+            className="flex flex-col gap-3 rounded-[var(--radius)] border border-border bg-surface p-6"
           >
             <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-surface-elevated text-primary">
               <step.icon aria-hidden="true" className="h-5 w-5" strokeWidth={2} />

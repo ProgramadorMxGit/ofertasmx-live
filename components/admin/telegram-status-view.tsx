@@ -67,7 +67,7 @@ export function TelegramStatusView({ initialStatus }: TelegramStatusViewProps) {
           onClick={handleRefresh}
           disabled={isPending}
           className={cn(
-            "inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2",
+            "inline-flex items-center gap-1.5 rounded-[var(--radius-control)] border border-border px-4 py-2",
             "text-meta font-medium text-foreground outline-none transition-colors",
             "hover:bg-surface-elevated focus-visible:ring-2 focus-visible:ring-focus-ring",
             "disabled:cursor-not-allowed disabled:opacity-60",

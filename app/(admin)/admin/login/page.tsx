@@ -47,7 +47,7 @@ type Status = "idle" | "sending" | "sent" | "error";
 function LoginShell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-[70vh] items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md rounded-[22px] border border-border bg-surface p-8 shadow-sm">
+      <div className="w-full max-w-md rounded-[var(--radius)] border border-border bg-surface p-8 shadow-sm">
         <div className="mb-6 flex flex-col items-center gap-2 text-center">
           <span
             aria-hidden="true"
@@ -235,7 +235,7 @@ function AdminLoginForm() {
             type="submit"
             disabled={sending}
             className={cn(
-              "inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5",
+              "inline-flex items-center justify-center gap-2 rounded-[var(--radius-control)] bg-primary px-4 py-2.5",
               "text-body font-semibold text-primary-foreground",
               "transition-colors duration-fast ease-emphasized hover:bg-primary/90",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",

@@ -102,7 +102,7 @@ export function MobileNav({ open, onClose, whatsappUrl }: MobileNavProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full bg-primary px-4 text-body font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+            className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-[var(--radius-control)] bg-primary px-4 text-body font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
           >
             <MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
             Unirme al grupo

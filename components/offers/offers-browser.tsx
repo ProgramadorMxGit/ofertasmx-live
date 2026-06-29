@@ -228,7 +228,7 @@ export function OffersBrowser({
             <button
               type="button"
               onClick={loadMore}
-              className="rounded-full border border-border bg-surface px-4 py-2 text-meta font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+              className="rounded-[var(--radius-control)] border border-border bg-surface px-4 py-2 text-meta font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
             >
               Reintentar
             </button>
@@ -243,7 +243,7 @@ export function OffersBrowser({
             onClick={loadMore}
             disabled={loading}
             className={cn(
-              "inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-2.5",
+              "inline-flex items-center gap-2 rounded-[var(--radius-control)] border border-border bg-surface px-6 py-2.5",
               "text-body font-medium text-foreground transition-colors duration-fast ease-emphasized",
               "hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",
               "disabled:cursor-not-allowed disabled:opacity-60",
@@ -263,13 +263,13 @@ export function OffersBrowser({
 /** A single placeholder card matching the offer-card silhouette. */
 function LoadMoreSkeletonCard() {
   return (
-    <div className="flex flex-col overflow-hidden rounded-[22px] border border-border bg-surface">
+    <div className="flex flex-col overflow-hidden rounded-[var(--radius)] border border-border bg-surface">
       <Skeleton className="aspect-[4/3] w-full rounded-none" />
       <div className="flex flex-col gap-3 p-4">
         <Skeleton className="h-4 w-full" />
         <Skeleton className="h-4 w-2/3" />
         <Skeleton className="h-7 w-1/2" />
-        <Skeleton className="h-9 w-full rounded-full" />
+        <Skeleton className="h-9 w-full rounded-[var(--radius-control)]" />
       </div>
     </div>
   );

@@ -222,7 +222,7 @@ function FiltersForm({
         <button
           type="button"
           onClick={onClear}
-          className="rounded-full border border-border bg-surface px-4 py-2 text-meta font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+          className="rounded-[var(--radius-control)] border border-border bg-surface px-4 py-2 text-meta font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
         >
           Limpiar filtros
         </button>
@@ -352,7 +352,7 @@ export function Filters({
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5 text-body font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+          className="inline-flex items-center gap-2 rounded-[var(--radius-control)] border border-border bg-surface px-4 py-2.5 text-body font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
         >
           <SlidersHorizontal aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
           Filtros
@@ -389,7 +389,7 @@ function DrawerShell({ onClose, containerRef, children }: DrawerShellProps) {
         aria-modal="true"
         aria-label="Filtros"
         tabIndex={-1}
-        className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-[22px] border-t border-border bg-surface p-5 outline-none"
+        className="absolute inset-x-0 bottom-0 max-h-[85vh] overflow-y-auto rounded-t-[var(--radius-lg)] border-t border-border bg-surface p-5 outline-none"
       >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-h6 font-semibold text-foreground">Filtros</h2>

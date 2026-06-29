@@ -72,7 +72,7 @@ export function ShareButton({ url, title, className }: ShareButtonProps) {
       onClick={onShare}
       aria-label={copied ? "Enlace copiado" : `Compartir ${title}`}
       className={cn(
-        "inline-flex items-center justify-center gap-1.5 rounded-full border border-border",
+        "inline-flex items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-border",
         "bg-surface px-3 py-2 text-meta font-medium text-foreground",
         "transition-colors duration-fast ease-emphasized hover:bg-surface-elevated",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",

@@ -31,14 +31,14 @@ export default function OfertasLoading() {
         {Array.from({ length: SKELETON_CARDS }).map((_, index) => (
           <li
             key={index}
-            className="flex flex-col overflow-hidden rounded-[22px] border border-border bg-surface"
+            className="flex flex-col overflow-hidden rounded-[var(--radius)] border border-border bg-surface"
           >
             <Skeleton className="aspect-[4/3] w-full rounded-none" />
             <div className="flex flex-col gap-3 p-4">
               <Skeleton className="h-4 w-full" />
               <Skeleton className="h-4 w-2/3" />
               <Skeleton className="h-7 w-1/2" />
-              <Skeleton className="h-9 w-full rounded-full" />
+              <Skeleton className="h-9 w-full rounded-[var(--radius-control)]" />
             </div>
           </li>
         ))}

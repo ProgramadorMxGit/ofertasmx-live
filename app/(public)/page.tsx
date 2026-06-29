@@ -5,7 +5,6 @@ import { Hero, TrustBar } from "@/components/layout";
 import { LiveOffersSection } from "@/components/offers/live-offers-section";
 import { OfferCard } from "@/components/offers/offer-card";
 import { JsonLd } from "@/components/seo/json-ld";
-import { NoFeaturedState } from "@/components/ui/states";
 import { publicEnv } from "@/lib/env";
 import { serverEnv } from "@/lib/env.server";
 import type { PublicOffer } from "@/lib/offers/query";
@@ -69,6 +68,14 @@ function FeaturedSection({
   offers: readonly PublicOffer[];
   showAmazonPrices: boolean;
 }) {
+  // Sin destacadas no mostramos la sección: una franja editorial vacía con un
+  // placeholder ocupa media pantalla y lee como "roto/sin terminar" en la home
+  // (estado real en producción mientras nadie marque ofertas como destacadas).
+  // El grid en vivo de arriba ya da contenido de sobra.
+  if (offers.length === 0) {
+    return null;
+  }
+
   return (
     <section
       aria-labelledby="featured-heading"
@@ -85,26 +92,20 @@ function FeaturedSection({
           Una selección editorial de las ofertas que más valen la pena ahora mismo.
         </p>
 
-        {offers.length === 0 ? (
-          <div className="mt-8">
-            <NoFeaturedState />
-          </div>
-        ) : (
-          <ul className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:snap-none lg:overflow-visible lg:pb-0">
-            {offers.map((offer, index) => (
-              <li
-                key={offer.id}
-                className={cn(
-                  "w-[82%] shrink-0 snap-start sm:w-[340px]",
-                  "lg:w-auto lg:shrink",
-                  index === 0 && "lg:col-span-2 lg:row-span-2",
-                )}
-              >
-                <OfferCard offer={offer} isFirstRow={index === 0} showAmazonPrices={showAmazonPrices} />
-              </li>
-            ))}
-          </ul>
-        )}
+        <ul className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:snap-none lg:overflow-visible lg:pb-0">
+          {offers.map((offer, index) => (
+            <li
+              key={offer.id}
+              className={cn(
+                "w-[82%] shrink-0 snap-start sm:w-[340px]",
+                "lg:w-auto lg:shrink",
+                index === 0 && "lg:col-span-2 lg:row-span-2",
+              )}
+            >
+              <OfferCard offer={offer} isFirstRow={index === 0} showAmazonPrices={showAmazonPrices} />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -160,7 +161,7 @@ function HowItWorksSection() {
           {HOW_STEPS.map((step, index) => (
             <li
               key={step.title}
-              className="flex flex-col gap-3 rounded-[22px] border border-border bg-surface p-6"
+              className="flex flex-col gap-3 rounded-[var(--radius)] border border-border bg-surface p-6"
             >
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-surface-elevated text-primary">
                 <step.icon aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
@@ -208,7 +209,7 @@ function TransparencySection() {
         </p>
         <Link
           href="/transparencia-afiliados"
-          className="mt-6 inline-flex items-center rounded-full border border-border bg-surface px-5 py-2.5 text-body font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+          className="mt-6 inline-flex items-center rounded-[var(--radius-control)] border border-border bg-surface px-5 py-2.5 text-body font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
         >
           Cómo funcionan los enlaces de afiliado
         </Link>
@@ -242,7 +243,7 @@ function FinalWhatsAppSection({ whatsappUrl }: { whatsappUrl: string }) {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-body font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+          className="mt-6 inline-flex items-center justify-center gap-2 rounded-[var(--radius-control)] bg-primary px-6 py-3 text-body font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
         >
           <MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
           Unirme al grupo de WhatsApp

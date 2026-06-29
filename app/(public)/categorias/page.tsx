@@ -71,7 +71,7 @@ export default function CategoriasPage() {
             <li key={category.slug}>
               <Link
                 href={`/categorias/${category.slug}`}
-                className="group flex h-full flex-col items-start gap-3 rounded-[22px] border border-border bg-surface p-5 transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+                className="group flex h-full flex-col items-start gap-3 rounded-[var(--radius)] border border-border bg-surface p-5 transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
               >
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-surface-elevated text-primary transition-colors duration-fast ease-emphasized group-hover:bg-primary/10">
                   <Icon aria-hidden="true" className="h-5 w-5" strokeWidth={2} />

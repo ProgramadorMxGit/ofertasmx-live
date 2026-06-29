@@ -65,7 +65,7 @@ export function LiveOfferItem({
     : "ring-0";
 
   const className = cn(
-    "rounded-[22px] transition-shadow duration-normal ease-emphasized",
+    "rounded-[var(--radius)] transition-shadow duration-normal ease-emphasized",
     "motion-reduce:transition-none",
     highlightClass,
   );

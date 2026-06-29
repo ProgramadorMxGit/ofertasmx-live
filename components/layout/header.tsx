@@ -129,7 +129,7 @@ export function Header({ searchOffers }: HeaderProps) {
             <Link
               href="/ofertas"
               aria-label="Buscar ofertas"
-              className="hidden items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-meta text-muted-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring md:inline-flex"
+              className="hidden items-center gap-2 rounded-[var(--radius-control)] border border-border bg-surface px-4 py-2 text-meta text-muted-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring md:inline-flex"
             >
               <Search aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
               <span>Buscar</span>
@@ -151,7 +151,7 @@ export function Header({ searchOffers }: HeaderProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full bg-primary px-4 py-2 text-meta font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring sm:inline-flex"
+            className="hidden items-center gap-2 rounded-[var(--radius-control)] bg-primary px-4 py-2 text-meta font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring sm:inline-flex"
           >
             <MessageCircle aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
             Unirme al grupo

@@ -108,7 +108,7 @@ export function TestMessagePanel({ showAmazonPrices }: TestMessagePanelProps) {
               onClick={handleAnalyze}
               disabled={isPending || message.trim() === ""}
               className={cn(
-                "inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2.5",
+                "inline-flex items-center justify-center gap-1.5 rounded-[var(--radius-control)] bg-primary px-5 py-2.5",
                 "text-body font-semibold text-primary-foreground outline-none transition-colors",
                 "hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-focus-ring",
                 "disabled:cursor-not-allowed disabled:opacity-60",
@@ -122,7 +122,7 @@ export function TestMessagePanel({ showAmazonPrices }: TestMessagePanelProps) {
               onClick={handleClear}
               disabled={isPending || (message === "" && result === null)}
               className={cn(
-                "inline-flex items-center justify-center rounded-full border border-border px-4 py-2.5",
+                "inline-flex items-center justify-center rounded-[var(--radius-control)] border border-border px-4 py-2.5",
                 "text-meta font-medium text-foreground outline-none transition-colors",
                 "hover:bg-surface-elevated focus-visible:ring-2 focus-visible:ring-focus-ring",
                 "disabled:cursor-not-allowed disabled:opacity-60",

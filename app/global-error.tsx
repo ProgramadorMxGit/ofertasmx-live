@@ -43,14 +43,14 @@ export default function GlobalError({
             <button
               type="button"
               onClick={() => reset()}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-body font-medium text-primary-foreground transition-colors duration-fast ease-emphasized hover:opacity-90 focus-visible:outline-none"
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-control)] bg-primary px-5 py-2.5 text-body font-medium text-primary-foreground transition-colors duration-fast ease-emphasized hover:opacity-90 focus-visible:outline-none"
             >
               <RotateCcw className="h-4 w-4" aria-hidden="true" />
               Reintentar
             </button>
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded-full border border-border bg-surface px-5 py-2.5 text-body font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none"
+              className="inline-flex items-center justify-center rounded-[var(--radius-control)] border border-border bg-surface px-5 py-2.5 text-body font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none"
             >
               Ir al inicio
             </Link>

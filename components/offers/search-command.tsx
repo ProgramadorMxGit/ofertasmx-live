@@ -151,7 +151,7 @@ export function SearchCommand({
           type="button"
           onClick={() => setOpen(true)}
           className={cn(
-            "inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-meta text-muted-foreground",
+            "inline-flex items-center gap-2 rounded-[var(--radius-control)] border border-border bg-surface px-4 py-2 text-meta text-muted-foreground",
             "transition-colors duration-fast ease-emphasized hover:bg-surface-elevated",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",
             className,
@@ -179,7 +179,7 @@ export function SearchCommand({
             aria-modal="true"
             aria-label="Buscar ofertas"
             tabIndex={-1}
-            className="relative mt-[8vh] w-full max-w-xl overflow-hidden rounded-[22px] border border-border bg-surface shadow-xl outline-none"
+            className="relative mt-[8vh] w-full max-w-xl overflow-hidden rounded-[var(--radius-lg)] border border-border bg-surface shadow-xl outline-none"
           >
             <div className="flex items-center gap-2 border-b border-border px-4 py-3">
               <Search

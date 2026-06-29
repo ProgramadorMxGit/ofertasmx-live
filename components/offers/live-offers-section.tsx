@@ -144,7 +144,7 @@ export function LiveOffersSection({ initial, showAmazonPrices }: LiveOffersSecti
       <div className="mt-10 flex justify-center">
         <Link
           href="/ofertas"
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-body font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+          className="inline-flex items-center gap-2 rounded-[var(--radius-control)] border border-border bg-surface px-5 py-2.5 text-body font-medium text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
         >
           Ver todas las ofertas
           <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2} />

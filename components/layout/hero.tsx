@@ -51,10 +51,7 @@ export function Hero({ demoOffers, showAmazonPrices }: HeroProps) {
         {/* Editorial column (asymmetric: 7 of 12). */}
         <div className="lg:col-span-7">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-meta font-medium text-muted-foreground">
-            <span aria-hidden="true" className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success/70 motion-reduce:animate-none" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
-            </span>
+            <span aria-hidden="true" className="inline-flex h-2 w-2 rounded-full bg-success" />
             Ofertas detectadas en tiempo real
           </span>
 
@@ -80,7 +77,7 @@ export function Hero({ demoOffers, showAmazonPrices }: HeroProps) {
             <Magnet className="w-full sm:w-auto">
               <Link
                 href="/ofertas"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-body font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-[var(--radius-control)] bg-primary px-6 py-3 text-body font-semibold text-primary-foreground transition-colors duration-fast ease-emphasized hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
               >
                 Ver ofertas en vivo
                 <ArrowRight aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
@@ -90,7 +87,7 @@ export function Hero({ demoOffers, showAmazonPrices }: HeroProps) {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-body font-semibold text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+              className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-control)] border border-border bg-surface px-6 py-3 text-body font-semibold text-foreground transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
             >
               <MessageCircle aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
               Unirme por WhatsApp
@@ -100,7 +97,7 @@ export function Hero({ demoOffers, showAmazonPrices }: HeroProps) {
 
         {/* Visual composition column (asymmetric: 5 of 12). */}
         <div className="lg:col-span-5">
-          <div className="rounded-[26px] border border-border bg-surface/40 p-4 sm:p-5">
+          <div className="rounded-[var(--radius-lg)] border border-border bg-surface/40 p-4 sm:p-5">
             {/* Names the preview region so the demo cards' h3 titles do not jump
                 straight from the page h1 (correct heading order, R25.1). */}
             <h2 className="sr-only">Vista previa de ofertas en vivo</h2>
@@ -159,7 +156,7 @@ function HeroPlaceholders() {
         <li
           key={slot}
           className={cn(
-            "flex min-h-[160px] flex-col justify-between rounded-[22px] border border-dashed border-border bg-surface/60 p-5",
+            "flex min-h-[160px] flex-col justify-between rounded-[var(--radius)] border border-dashed border-border bg-surface/60 p-5",
             slot === 0 && "sm:col-span-2",
           )}
         >

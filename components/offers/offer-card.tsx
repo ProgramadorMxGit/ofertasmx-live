@@ -28,7 +28,7 @@ import { ShareButton } from "./share-button";
  *
  * Visual hierarchy (R14.3): current price > discount > product > image >
  * original price > metadata, expressed through size/weight/placement. Card
- * chrome (R14.6): 22px radius, subtle border, a small hover lift (~3px) and
+ * chrome (R14.6): a tokenized ~13px radius (`--radius`), subtle border, a small hover lift (~3px) and
  * scale (<=1.01) limited to hover-capable devices. The premium spotlight is
  * applied **only** through the gate in {@link PremiumSpotlight}
  * (featured + first row + precise pointer; off for coarse pointer /
@@ -107,7 +107,7 @@ export function OfferCard({
     <article
       aria-labelledby={titleId}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-[22px] border border-border bg-surface",
+        "group relative flex flex-col overflow-hidden rounded-[var(--radius)] border border-border bg-surface",
         "transition-transform duration-fast ease-emphasized motion-reduce:transition-none",
         "[@media(hover:hover)]:hover:-translate-y-[3px] [@media(hover:hover)]:hover:scale-[1.01]",
         isExpired && "opacity-80",
@@ -145,10 +145,7 @@ export function OfferCard({
             </span>
           ) : (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-background/85 px-2.5 py-1 text-meta font-medium text-foreground backdrop-blur-sm">
-              <span aria-hidden="true" className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success/70 motion-reduce:animate-none" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
-              </span>
+              <span aria-hidden="true" className="inline-flex h-2 w-2 rounded-full bg-success" />
               En vivo
             </span>
           )}
@@ -224,7 +221,7 @@ export function OfferCard({
             rel="sponsored nofollow noopener"
             aria-label={`Ver oferta en ${platformLabel}: ${offer.title}`}
             className={cn(
-              "inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-4 py-2.5",
+              "inline-flex flex-1 items-center justify-center gap-1.5 rounded-[var(--radius-control)] bg-primary px-4 py-2.5",
               "text-body font-semibold text-primary-foreground",
               "transition-colors duration-fast ease-emphasized hover:bg-primary/90",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",

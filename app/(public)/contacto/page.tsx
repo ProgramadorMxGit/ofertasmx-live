@@ -51,7 +51,7 @@ export default function ContactoPage() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col gap-2 rounded-[22px] border border-border bg-surface p-6 transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+          className="flex flex-col gap-2 rounded-[var(--radius)] border border-border bg-surface p-6 transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
         >
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-surface-elevated text-primary">
             <MessageCircle aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
@@ -65,7 +65,7 @@ export default function ContactoPage() {
 
         <a
           href={`mailto:${email}`}
-          className="flex flex-col gap-2 rounded-[22px] border border-border bg-surface p-6 transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
+          className="flex flex-col gap-2 rounded-[var(--radius)] border border-border bg-surface p-6 transition-colors duration-fast ease-emphasized hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring"
         >
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-surface-elevated text-primary">
             <Mail aria-hidden="true" className="h-5 w-5" strokeWidth={2} />

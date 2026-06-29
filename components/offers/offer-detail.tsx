@@ -131,7 +131,7 @@ export function OfferDetail({ offer, related, showAmazonPrices }: OfferDetailPro
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         {/* Optimized image (R15.1) with graceful fallback. */}
-        <div className="relative aspect-square w-full overflow-hidden rounded-[22px] border border-border bg-surface-elevated">
+        <div className="relative aspect-square w-full overflow-hidden rounded-[var(--radius)] border border-border bg-surface-elevated">
           {canShowImage && imageUrl !== null ? (
             <Image
               src={imageUrl}
@@ -154,10 +154,7 @@ export function OfferDetail({ offer, related, showAmazonPrices }: OfferDetailPro
         <div className="flex flex-col gap-5">
           <div>
             <span className="inline-flex items-center gap-1.5 text-meta font-medium text-muted-foreground">
-              <span aria-hidden="true" className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success/70 motion-reduce:animate-none" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
-              </span>
+              <span aria-hidden="true" className="inline-flex h-2 w-2 rounded-full bg-success" />
               Oferta en vivo
             </span>
             <h1 className="mt-3 font-serif text-h2 leading-tight tracking-tight text-foreground">
@@ -222,7 +219,7 @@ export function OfferDetail({ offer, related, showAmazonPrices }: OfferDetailPro
           </dl>
 
           {/* Honest price-change warning (R22.1). */}
-          <p className="flex items-start gap-2 rounded-xl border border-border bg-surface px-3 py-2.5 text-meta text-muted-foreground">
+          <p className="flex items-start gap-2 rounded-[var(--radius-control)] border border-border bg-surface px-3 py-2.5 text-meta text-muted-foreground">
             <TriangleAlert
               aria-hidden="true"
               className="mt-0.5 h-4 w-4 shrink-0 text-warning"
@@ -240,7 +237,7 @@ export function OfferDetail({ offer, related, showAmazonPrices }: OfferDetailPro
                 rel="sponsored nofollow noopener"
                 aria-label={`Ver oferta en ${platformLabel}: ${offer.title}`}
                 className={cn(
-                  "inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3",
+                  "inline-flex flex-1 items-center justify-center gap-2 rounded-[var(--radius-control)] bg-primary px-6 py-3",
                   "text-body font-semibold text-primary-foreground",
                   "transition-colors duration-fast ease-emphasized hover:bg-primary/90",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",

@@ -29,7 +29,7 @@ export default function NotFound() {
       </div>
       <Link
         href="/"
-        className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-body font-medium text-primary-foreground transition-colors duration-fast ease-emphasized hover:opacity-90 focus-visible:outline-none"
+        className="inline-flex items-center justify-center rounded-[var(--radius-control)] bg-primary px-5 py-2.5 text-body font-medium text-primary-foreground transition-colors duration-fast ease-emphasized hover:opacity-90 focus-visible:outline-none"
       >
         Volver al inicio
       </Link>
