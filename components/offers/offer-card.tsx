@@ -9,6 +9,7 @@ import type { PublicOffer } from "@/lib/offers/query";
 import { cn } from "@/lib/utils/cn";
 import { absoluteSavings, formatMXN } from "@/lib/utils/money";
 
+import { BorderGlow } from "./border-glow";
 import { PremiumSpotlight } from "./premium-spotlight";
 import { RelativeTime } from "./relative-time";
 import { ShareButton } from "./share-button";
@@ -239,6 +240,9 @@ export function OfferCard({
 
       {/* Gated premium flourish (R14.4, R14.5) — decorative, on top, click-through. */}
       <PremiumSpotlight isFeatured={offer.is_featured} isFirstRow={isFirstRow} />
+
+      {/* Cursor-following border glow on every card (gated) — decorative, click-through. */}
+      <BorderGlow />
     </article>
   );
 }
