@@ -3,7 +3,6 @@
 import { Menu, MessageCircle, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
 import { SearchCommand } from "@/components/offers/search-command";
@@ -11,8 +10,8 @@ import { publicEnv } from "@/lib/env";
 import type { PublicOffer } from "@/lib/offers/query";
 import { cn } from "@/lib/utils/cn";
 
+import { DesktopNav } from "./desktop-nav";
 import { MobileNav } from "./mobile-nav";
-import { NAV_LINKS } from "./nav-links";
 import { ThemeToggle } from "./theme-toggle";
 
 /**
@@ -40,7 +39,6 @@ export interface HeaderProps {
 const SCROLL_THRESHOLD = 8;
 
 export function Header({ searchOffers }: HeaderProps) {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -96,30 +94,8 @@ export function Header({ searchOffers }: HeaderProps) {
           </span>
         </Link>
 
-        {/* Desktop navigation (R13.2). */}
-        <nav aria-label="Principal" className="hidden items-center gap-1 md:flex">
-          {NAV_LINKS.map((link) => {
-            const active =
-              !!pathname &&
-              (pathname === link.href || pathname.startsWith(`${link.href}/`));
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "rounded-lg px-3 py-2 text-meta font-medium transition-colors duration-fast ease-emphasized",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",
-                  active
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+        {/* Desktop navigation with sliding active/hover pill (R13.2). */}
+        <DesktopNav />
 
         {/* Right cluster: search, theme, WhatsApp CTA, mobile menu. */}
         <div className="flex shrink-0 items-center gap-2">
