@@ -56,6 +56,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Google Search Console: verificacion por etiqueta HTML. Solo aplica al tipo
+  // de propiedad "Prefijo de la URL" (https://ofertasmx-live.com), no a la
+  // propiedad de Dominio (esa requiere registro DNS TXT). Token publico, no secreto.
+  verification: {
+    google: "Xz5O88XyGC7lsAZpGHoDwe2oS38LRF5gYduPbwVcTj4",
+  },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
