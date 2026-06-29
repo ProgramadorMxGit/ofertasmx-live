@@ -46,6 +46,7 @@
   --radius-control: 0.5rem; /* 8px  — buttons & inputs (replaces full pills) */
   --radius: 0.8125rem; /* 13px — cards & panels (target 12–14px) */
   --radius-lg: 1rem; /* 16px — large editorial frames (hero preview) */
+  --radius-card: 1.125rem; /* 18px — tarjeta de oferta y su marco de imagen (R14.6: 18–24px) */
 }
 
 /* ----- Dark theme (default / dark-first, R12.3) ---------------------------- */

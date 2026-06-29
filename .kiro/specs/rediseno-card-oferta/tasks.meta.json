@@ -1,0 +1,182 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Definir el Token de Radio de Tarjeta `--radius-card`": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774571977
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774606934
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774715817
+      }
+    ],
+    "2. Actualizar el contenedor `<article>` y preservar el contrato de movimiento": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572052
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774735370
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774898038
+      }
+    ],
+    "3. Reconstruir la Zona Media (marco de imagen + insignias)": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572099
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774912779
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782775231046
+      }
+    ],
+    "4. Reescalar el Cuerpo y el bloque de precio": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572149
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782775244707
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782775466297
+      }
+    ],
+    "5. Reestilizar la fila de acción y el _disclosure_ de afiliado": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572226
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782775479704
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782775822744
+      }
+    ],
+    "6. Elevar los objetivos táctiles a ≥ 44px": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572293
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782775835510
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776010974
+      }
+    ],
+    "7. Endurecer accesibilidad y semántica": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572350
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776024049
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776326734
+      }
+    ],
+    "8. Checkpoint — coherencia tras la implementación": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572400
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776344965
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776355130
+      }
+    ],
+    "9.1 Ejecutar verificación estática y de compilación": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572484
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776368742
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776681314
+      }
+    ],
+    "10. Checkpoint final": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782774572534
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776730416
+      },
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776734545
+      }
+    ],
+    "9. Verificación de calidad y no-regresión": [
+      {
+        "executionId": "8e8dedd8-5b6a-462d-939e-c09cd712cf63",
+        "chatSessionId": "sess_525ddf1d-b624-4db1-ab9f-b034a50c4c3e",
+        "timestamp": 1782776681375
+      }
+    ]
+  }
+}
