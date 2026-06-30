@@ -71,20 +71,21 @@ export function ShareButton({ url, title, className }: ShareButtonProps) {
       type="button"
       onClick={onShare}
       aria-label={copied ? "Enlace copiado" : `Compartir ${title}`}
+      title={copied ? "Enlace copiado" : "Compartir"}
       className={cn(
-        "inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-[var(--radius-control)] border border-border",
-        "bg-surface px-3 py-2 text-meta font-medium text-foreground",
-        "transition-colors duration-fast ease-emphasized hover:bg-surface-elevated",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring",
+        "inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-border",
+        "bg-surface text-foreground",
+        "transition-colors duration-fast ease-emphasized hover:border-muted-foreground/40 hover:bg-surface-elevated",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
         className,
       )}
     >
       {copied ? (
-        <Check aria-hidden="true" className="h-4 w-4 text-success" strokeWidth={2} />
+        <Check aria-hidden="true" className="h-5 w-5 text-success" strokeWidth={2} />
       ) : (
-        <Share2 aria-hidden="true" className="h-4 w-4" strokeWidth={2} />
+        <Share2 aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
       )}
-      <span>{copied ? "Copiado" : "Compartir"}</span>
+      <span className="sr-only">{copied ? "Copiado" : "Compartir"}</span>
     </button>
   );
 }

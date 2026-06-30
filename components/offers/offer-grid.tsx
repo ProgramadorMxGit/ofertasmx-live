@@ -22,8 +22,8 @@ import { NewOffersNotice } from "./new-offers-notice";
  * static (SSR-only) usage from Task 23 is unchanged.
  */
 
-/** Columns at the widest breakpoint (`xl:grid-cols-4`); defines the "first row". */
-const FIRST_ROW_COLUMNS = 4;
+/** Columns at the widest breakpoint (`lg:grid-cols-3`); defines the "first row". */
+const FIRST_ROW_COLUMNS = 3;
 
 export interface OfferGridProps {
   offers: readonly PublicOffer[];
@@ -64,7 +64,7 @@ export function OfferGrid({
       <NewOffersNotice count={newCount} onShow={onShowNew} className="mb-4" />
       <ul
         className={cn(
-          "grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+          "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3",
           className,
         )}
       >
